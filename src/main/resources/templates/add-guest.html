@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style> td { border: 1px solid black; padding: 5px} </style>
+</head>
+
+<!--
+    charset - zestaw znaków, który zostanie użyty na stronie,
+    name - nazwa metadanej,
+    viewport - parametr definiujący formatowanie się strony dla różnych urządzeń (wyświetlaczy)
+    content -
+    "width=device-width, initial-scale=1.0" -
+    title - tytuł strony (wyświetlany na pasku tytułu w przeglądarce)
+    link - wskazuje źródło zewnętrzne (w tym przypadku plik css)
+    rel - wskazuje typ relacji między dokumentem, a zewnętrznym źródłem
+    href - wskazuje adres odnośnika (w tym przypadku zewnętrznego źródła)
+    script - odniesienie do pliku JS wykorzystanego na stronie
+    src - lokalizacja skryptu JS
+    defer - ustala, że skrypt JS wykona się dopiero po załadowaniu całej strony przez przeglądarkę (stosowany w połączeniu z src)
+-->
+
+<body>
+<header id="logo-field">
+    <h1 id="logo"></h1>
+</header>
+
+
+
+<div id="guestbook-holder">
+    <div id="guestbook-header"></div>
+
+    <form action="#" th:action="@{/guest-book}" th:object="${user}" method="post">
+        <table border="1">
+            <tr>
+<!--                <td><label th:text="#{msg.id}" /></td>-->
+                <td><input type="text" th:field="*{name}" /></td>
+            </tr>
+            <tr>
+<!--                <td><label th:text="#{msg.name}" /></td>-->
+                <td><input type="text" th:field="*{msg}" /></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Submit" /></td>
+            </tr>
+        </table>
+    </form>
+
+
+
+    <div id="guestbook-msg-holder">
+        <p id="guestbook-msg">Invalid username and/or message</p>
+    </div>
+</div>
+
+<footer>
+    <p>CONTACT: <a href="mailto:fusy-queststore@fusy.com">fusy-queststore@fusy.com</a></p>
+</footer>
+</body>
+
+<!-- FORM ATTRIBUTES:
+    type - inputu,
+    name - nazwa elementu formularza,
+    id - unikalne ID elementu,
+    class - nazwa klasy, do której przynależy element,
+    placeholder - wiadomość, która wyświetli się w polu (wygaszona informacja przed wpisaniem danych),
+    value - napis, który wyświetli się na przycisku
+-->
+
+<!--
+    span - tag stosowany wewnątrz linii do wydzielenia jej fragmentu (np do pokolorowania tylko części tekstu)
+-->
+</html>

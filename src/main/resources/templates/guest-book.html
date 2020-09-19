@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style> td { border: 1px solid black; padding: 5px} </style>
+</head>
+
+<!--
+    charset - zestaw znaków, który zostanie użyty na stronie,
+    name - nazwa metadanej,
+    viewport - parametr definiujący formatowanie się strony dla różnych urządzeń (wyświetlaczy)
+    content -
+    "width=device-width, initial-scale=1.0" -
+    title - tytuł strony (wyświetlany na pasku tytułu w przeglądarce)
+    link - wskazuje źródło zewnętrzne (w tym przypadku plik css)
+    rel - wskazuje typ relacji między dokumentem, a zewnętrznym źródłem
+    href - wskazuje adres odnośnika (w tym przypadku zewnętrznego źródła)
+    script - odniesienie do pliku JS wykorzystanego na stronie
+    src - lokalizacja skryptu JS
+    defer - ustala, że skrypt JS wykona się dopiero po załadowaniu całej strony przez przeglądarkę (stosowany w połączeniu z src)
+-->
+
+<body>
+<header id="logo-field">
+    <h1 id="logo"></h1>
+</header>
+
+<table>
+    <tr>
+        <td>Username</td> <td>Msg</td>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td><span th:text="${user.name}"> Name </span></td>
+        <td><span th:text="${user.msg}"> Address </span></td>
+    </tr>
+
+
+</table>
+
+<p th:text="'Hello, ' + ${name1} + '!'" />
+
+<p th:text="'For , ' + ${name} + ' time(s)'" />
+
+<div id="guestbook-holder">
+    <div id="guestbook-header"></div>
+
+    <form id="add-new-guest">
+        <input type="button" class="add-new-guest" onclick="window.location='add-guest.html';" value="Add new registration!" />
+    </form>
+</div>
+
+<footer>
+    <p>CONTACT: <a href="mailto:fusy-queststore@fusy.com">fusy-queststore@fusy.com</a></p>
+</footer>
+</body>
+
+
+</html>
